@@ -21,7 +21,7 @@ class BackgroundImageWidget extends StatelessWidget {
               ),
             ),
           ),
-          Spacer(flex: 1), // 1/4 of the screen height
+          const Spacer(flex: 1),
         ],
       ),
     );

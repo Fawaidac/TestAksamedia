@@ -8,16 +8,16 @@ class CustomButton extends StatelessWidget {
   final String text;
 
   const CustomButton({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 48,
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
       width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
         onPressed: onPressed,

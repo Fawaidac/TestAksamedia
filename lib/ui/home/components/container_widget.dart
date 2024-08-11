@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:test_aksamedia/core/theme/app_colors.dart';
 import 'package:test_aksamedia/core/theme/app_fonts.dart';
 import 'package:test_aksamedia/core/widgets/custom_button.dart';
+import 'package:test_aksamedia/ui/produk/produk_view.dart';
 
 class ContainerWidget extends StatelessWidget {
   final String title;
   final String subtitle;
   final VoidCallback onNext;
+  final bool isLastSection;
 
   const ContainerWidget({
     required this.title,
     required this.subtitle,
     required this.onNext,
+    required this.isLastSection,
     super.key,
   });
 
@@ -47,7 +50,18 @@ class ContainerWidget extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          CustomButton(onPressed: onNext, text: "Selanjutnya"),
+          CustomButton(
+            onPressed: isLastSection
+                ? () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProdukView(),
+                        ));
+                  }
+                : onNext,
+            text: "Selanjutnya",
+          ),
         ],
       ),
     );
